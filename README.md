@@ -4,7 +4,7 @@
 
 ### Beginning
 
-After I progressed considerably into JavaScript(hereafter called Javascript) and also implemented some of it in my [site](https://brokenbricks.netlify.app), I had a feeling there was more to make great sites, such as [this](https://www.seanv.dev). After trying to dig around a bit I learnt that it was made out of React(hereafter called React). After I digged further, I learned that React is a Javascript framework by Meta, the same company that runs Facebook. Say what you may about the platform or the company, the aesthetics and UI/UX are to die for. That is my goal here. What I also learned is that this framework is responsible to give the site an app-like feel, compared to the site-like feel of the past. So, I decided to learn React.
+After I progressed considerably into JavaScript and also implemented some of it in my [site](https://brokenbricks.netlify.app), I had a feeling there was more to make great sites, such as [this](https://www.seanv.dev). After trying to dig around a bit I learnt that it was made out of React. After I digged further, I learned that React is a Javascript framework by Meta, the same company that runs Facebook. Say what you may about the platform or the company, the aesthetics and UI/UX are to die for. That is my goal here. What I also learned is that this framework is responsible to give the site an app-like feel, compared to the site-like feel of the past. So, I decided to learn React.
 
 ---
 
@@ -34,10 +34,10 @@ The book asked the readers to try teaching the material they learn as a learning
 
 ---
 
-### Introduction to React
+### Standing Up Before We Walk
 
-- The app-like interface that I mentioned before in contrast to the old-school site-like interface is called [SPA](https://www.wikiperdia.com/single%20page%20%application.com) - Single Page Application.
-- React is a view library, in something called the '[MVC]((https://www.wikiperdia.com/model%view%20%controller.com)) - Model View Controller' - which means it allows to render components as viewable elements.
+- The app-like interface that I mentioned before in contrast to the old-school site-like interface is called [SPA](https://en.wikipedia.org/wiki/single-page_application) - Single Page Application.
+- React is a view library, in something called the '[MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) - Model View Controller' - which means it allows to render components as viewable elements.
 
 #### Requirements and Setup.
 
@@ -55,30 +55,39 @@ The book asked the readers to try teaching the material they learn as a learning
 - Check your installation with the following commands (in terminal - I use '`$`' to indicate that the command is intended to be run on terminal)
 
     ```cli
-    $ node --version
-    $ npm --version
+    $node --version
+    $npm --version
     ```
 
 - The bare minimum familiarity with `npm`:
   
-  - `$ npm init -y` Here `npm` is the name of the executable (program) we are trying to call to. In other words, `npm` is the base command. `init` is the subcommand that we pass to `npm`. It tells `npm` what we want it to do. `-y` is a flag (because it starts with `-`). Flags are like further customization options for the main subcommand. `init` is used to initialize the directory where it is run, as a node project. `-y` tells `npm` to assume a `-y`es for all default options for parameters required to initialize. You can skip the flag if you want to do the inititalization manually step-by-step.
-  - `$ npm install -g --save-dev <packagename1> <packagename2>`
+  - `$npm init -y` Here `npm` is the name of the executable (program) we are trying to call to. In other words, `npm` is the base command. `init` is the subcommand that we pass to `npm`. It tells `npm` what we want it to do. `-y` is a flag (because it starts with `-`). Flags are like further customization options for the main subcommand. `init` is used to initialize the directory where it is run, as a node project. `-y` tells `npm` to assume a `-y`es for all default options for parameters required to initialize. You can skip the flag if you want to do the inititalization manually step-by-step.
+  - `$npm install -g --save-dev <packagename1> <packagename2>`
   
-    `install` tells `npm` exactly what you would guess.
-
-    `--save-dev` is also a flag.
-
-    <font color="red">The rule is : If the flag is just one character, use `-`, otherwise use `--`.</font>
-
-    And then we have a ` ` (whitespace) separated list of `<packagenames>` we want to install.
-
-    <font color="red">You must know the package name exactly.</font>
-
-    `-g` tells `npm` to `install` the given packages `-g`lobally meaning they will be accessible anywhere on your system. Not using this flag will `install` it in the directory where you run the command from. `--save-dev flag` tells `npm` that the package is to be noted separately as it is only used in the development cycle, for example, to test code, and will not be a part of the release or deployed versions of the code.
-  - `$ npm uninstall <packagename>` does exactly what you would guess.
-  - `npm install react` installs React in the working directory(directory where the command is run).
+    `install` tells `npm` exactly what you would guess. `--save-dev` is also a flag. <font color="scarlet">The rule is : If the flag is just one character, use `-`, otherwise use `--`.</font> And then we have a ` ` (whitespace) separated list of `<packagenames>` we want to install. <font color="scarlet">You must know the package name exactly.</font> `-g` tells `npm` to `install` the given packages `-g`lobally meaning they will be accessible anywhere on your system. Not using this flag will `install` it in the directory where you run the command from. `--save-dev flag` tells `npm` that the package is to be noted separately as it is only used in the development cycle, for example, to test code, and will not be a part of the release or deployed versions of the code.
+  - `$npm uninstall <packagename>` does exactly what you would guess.
+  - `$npm install react` installs React in the working directory(directory where the command is run).
   - **Yarn** is an alternative to npm.
 
 #### How to React?
 
-- 
+There are many ways to use React.
+
+- [CDN](https://en.wikipedia.org/wiki/content_delivery_network)(Content Delivery Network) - Accessing the `react.js` file which is what the React library is, from a remote server from within the code inside a `script` tag. It is required to use **React DOM** as well. It can be done the same way.
+- Installing `react` and `react-dom` via `npm` into the project. Using this method means having to deal with **Babel** which makes converts JavaScript ES6 (newer version) and JSX (React syntax) into plain JavaScript, for greater compatibility.
+- To avoid all the above complications, we can use [`create-react-app`](https://github.com/facebookincubator/create-react-app). It is beginner friendly and this book uses that.
+
+#### `create-react-app`
+
+- There's 2 ways to use it.
+  - Install it using `$npm install -g create-react-app`. You can check your installation using `$create-react-app --version`. Lastly `$create-react-app <AppName>`
+  - You can use `$npx create-react-app <AppName>`. `npx` is a tool that comes with `npm`. It avoids the step of installing packages and lets you run packages from npm directory without manually installing. <font color="scarlet">The package is still installed. Only you didn't have to bother about it.</font>. This is the preferred method as it always uses the latest version from the register.
+- I am working along as I learn to I ran `$create-react-app first-reaction`. It automatically creates the app directory. Check it out [here](./first-reaction).
+
+---
+
+### Finally Walking
+
+#### The First Steps
+
+
